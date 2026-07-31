@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StyleCraft - Interactive HTML5 & CSS3 Design Playground & Modern Component Library. Explore glassmorphism, 3D tilt effects, CSS Grid/Flexbox visualizer, and customizable UI components.">
+    <title>StyleCraft | Interactive HTML5 & CSS3 Demo Playground</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header & Navigation Bar -->
+    <header class="navbar" id="top-navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">SC</div>
+                <span>StyleCraft</span>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#sandboxes" class="nav-link">Interactive Sandboxes</a></li>
+                    <li><a href="#components" class="nav-link">UI Gallery</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="theme-switcher" title="Switch Theme">
+                    <button class="theme-btn active" data-theme-set="dark" id="btn-theme-dark">Dark</button>
+                    <button class="theme-btn" data-theme-set="light" id="btn-theme-light">Light</button>
+                    <button class="theme-btn" data-theme-set="cyberpunk" id="btn-theme-cyber">Cyber</button>
+                </div>
+                <a href="#sandboxes" class="btn-primary" style="padding: 6px 16px; font-size: 0.85rem;">Try Playground</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-glow-1"></div>
+            <div class="hero-glow-2"></div>
+
+            <div class="container hero-grid">
+                <div class="hero-text-content">
+                    <div class="hero-badge">
+                        <span>✨ HTML5 &amp; CSS3 Interactive Demo</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Craft Stunning Web Interfaces with <span class="gradient-text">Pure CSS3</span>
+                    </h1>
+                    <p class="hero-description">
+                        Explore real-time visual sandboxes, modern Glassmorphism generators, Flexbox &amp; Grid visualizers, and copy-paste ready micro-interacted UI components.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#sandboxes" class="btn-primary">
+                            <span>Open Sandboxes</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#components" class="btn-secondary">Explore Components</a>
+                    </div>
+                </div>
+
+                <!-- 3D Interactive Hero Card Visualizer -->
+                <div class="hero-visual">
+                    <div class="hero-card-tilt" id="hero-tilt-card">
+                        <div class="hero-card-header">
+                            <div class="code-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <span class="live-badge">CSS3 LIVE PREVIEW</span>
+                        </div>
+
+                        <div class="hero-demo-box">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <h4 style="font-size: 1.1rem;">Interactive Glassmorphism</h4>
+                                <span style="font-size: 0.8rem; color: var(--text-accent); font-family: var(--font-code);">backdrop-filter</span>
+                            </div>
+
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">
+                                Move your cursor over this card to feel the smooth 3D tilt physics calculated in real time.
+                            </p>
+
+                            <div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px;">
+                                    <span>Rendering Engine</span>
+                                    <span>72%</span>
+                                </div>
+                                <div class="demo-progress-bar">
+                                    <div class="demo-progress-fill"></div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 8px; margin-top: 6px;">
+                                <button class="btn-neumorphic" style="padding: 6px 12px; font-size: 0.8rem;">Neumorphic</button>
+                                <button class="btn-cyber-border" style="padding: 6px 12px; font-size: 0.8rem;">Cyber Glow</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Interactive Sandboxes & Live Generators -->
+        <section class="section" id="sandboxes">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Interactive <span class="gradient-text">CSS Sandboxes</span></h2>
+                    <p class="section-subtitle">Tweak values live and see real-time updates with generated clean CSS code ready for production.</p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="sandbox-tabs">
+                    <button class="tab-btn active" data-target="panel-glass">Glassmorphism</button>
+                    <button class="tab-btn" data-target="panel-flex">Flexbox Visualizer</button>
+                    <button class="tab-btn" data-target="panel-shadow">Box Shadow Studio</button>
+                    <button class="tab-btn" data-target="panel-animation">Keyframe Animations</button>
+                </div>
+
+                <!-- Panel 1: Glassmorphism -->
+                <div class="sandbox-panel active" id="panel-glass">
+                    <div class="controls-group">
+                        <h3>Glassmorphism Controls</h3>
+                        
+                        <div class="control-item">
+                            <div class="control-label">
+                                <span>Blur (backdrop-filter)</span>
+                                <span class="control-val" id="val-blur">16px</span>
+                            </div>
+                            <input type="range" id="input-blur" min="0" max="40" value="16">
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-label">
+                                <span>Opacity</span>
+                                <span class="control-val" id="val-opacity">0.15</span>
+                            </div>
+                            <input type="range" id="input-opacity" min="0" max="1" step="0.05" value="0.15">
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-label">
+                                <span>Border Radius</span>
+                                <span class="control-val" id="val-radius">20px</span>
+                            </div>
+                            <input type="range" id="input-radius" min="0" max="50" value="20">
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-label">
+                                <span>Border Opacity</span>
+                                <span class="control-val" id="val-border">0.2</span>
+                            </div>
+                            <input type="range" id="input-border" min="0" max="1" step="0.05" value="0.2">
+                        </div>
+                    </div>
+
+                    <div class="preview-wrapper">
+                        <div class="sandbox-preview-box" style="background: linear-gradient(135deg, #6366f1, #ec4899);">
+                            <div id="preview-glass-box" style="width: 220px; height: 160px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; color: white;">
+                                <h4>Glass Card</h4>
+                                <p style="font-size: 0.85rem; opacity: 0.9;">Real-time backdrop blur</p>
+                            </div>
+                        </div>
+
+                        <div class="code-box">
+                            <button class="copy-code-btn" id="copy-glass-code">Copy CSS</button>
+                            <pre><code id="code-glass-out">/* CSS Code Output */
+background: rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border-radius: 20px;
+border: 1px solid rgba(255, 255, 255, 0.2);</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Flexbox Visualizer -->
+                <div class="sandbox-panel" id="panel-flex">
+                    <div class="controls-group">
+                        <h3>Flexbox Alignment Visualizer</h3>
+                        
+                        <div class="control-item">
+                            <span class="control-label"><span>justify-content</span></span>
+                            <div class="button-grid" id="opt-justify">
+                                <button class="btn-option active" data-val="center">center</button>
+                                <button class="btn-option" data-val="flex-start">flex-start</button>
+                                <button class="btn-option" data-val="flex-end">flex-end</button>
+                                <button class="btn-option" data-val="space-between">space-between</button>
+                                <button class="btn-option" data-val="space-around">space-around</button>
+                            </div>
+                        </div>
+
+                        <div class="control-item">
+                            <span class="control-label"><span>align-items</span></span>
+                            <div class="button-grid" id="opt-align">
+                                <button class="btn-option active" data-val="center">center</button>
+                                <button class="btn-option" data-val="flex-start">flex-start</button>
+                                <button class="btn-option" data-val="flex-end">flex-end</button>
+                                <button class="btn-option" data-val="stretch">stretch</button>
+                            </div>
+                        </div>
+
+                        <div class="control-item">
+                            <span class="control-label"><span>flex-direction</span></span>
+                            <div class="button-grid" id="opt-direction">
+                                <button class="btn-option active" data-val="row">row</button>
+                                <button class="btn-option" data-val="column">column</button>
+                                <button class="btn-option" data-val="row-reverse">row-reverse</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preview-wrapper">
+                        <div class="visualizer-container" id="visualizer-flex-box" style="justify-content: center; align-items: center; flex-direction: row;">
+                            <div class="visualizer-item">1</div>
+                            <div class="visualizer-item">2</div>
+                            <div class="visualizer-item">3</div>
+                        </div>
+
+                        <div class="code-box">
+                            <button class="copy-code-btn" id="copy-flex-code">Copy CSS</button>
+                            <pre><code id="code-flex-out">display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 3: Box Shadow Studio -->
+                <div class="sandbox-panel" id="panel-shadow">
+                    <div class="controls-group">
+                        <h3>Box Shadow Generator</h3>
+
+                        <div class="control-item">
+                            <div class="control-label"><span>X Offset</span><span class="control-val" id="val-sh-x">0px</span></div>
+                            <input type="range" id="input-sh-x" min="-50" max="50" value="0">
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-label"><span>Y Offset</span><span class="control-val" id="val-sh-y">10px</span></div>
+                            <input type="range" id="input-sh-y" min="-50" max="50" value="10">
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-label"><span>Blur Radius</span><span class="control-val" id="val-sh-blur">30px</span></div>
+                            <input type="range" id="input-sh-blur" min="0" max="80" value="30">
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-label"><span>Spread Radius</span><span class="control-val" id="val-sh-spread">0px</span></div>
+                            <input type="range" id="input-sh-spread" min="-20" max="40" value="0">
+                        </div>
+                    </div>
+
+                    <div class="preview-wrapper">
+                        <div class="sandbox-preview-box">
+                            <div id="preview-shadow-box" style="width: 150px; height: 120px; background: var(--bg-tertiary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 600; box-shadow: 0px 10px 30px rgba(99, 102, 241, 0.4);">
+                                Shadow Box
+                            </div>
+                        </div>
+
+                        <div class="code-box">
+                            <button class="copy-code-btn" id="copy-shadow-code">Copy CSS</button>
+                            <pre><code id="code-shadow-out">box-shadow: 0px 10px 30px rgba(99, 102, 241, 0.4);</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 4: Keyframe Animations -->
+                <div class="sandbox-panel" id="panel-animation">
+                    <div class="controls-group">
+                        <h3>Keyframe Motion Sandbox</h3>
+
+                        <div class="control-item">
+                            <span class="control-label"><span>Select Animation Preset</span></span>
+                            <div class="button-grid" id="opt-anim">
+                                <button class="btn-option active" data-anim="pulse">Pulse Glow</button>
+                                <button class="btn-option" data-anim="bounce">Bounce</button>
+                                <button class="btn-option" data-anim="spin">3D Flip Spin</button>
+                                <button class="btn-option" data-anim="shake">Shake Warning</button>
+                            </div>
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-label"><span>Duration</span><span class="control-val" id="val-anim-dur">1.5s</span></div>
+                            <input type="range" id="input-anim-dur" min="0.3" max="4" step="0.1" value="1.5">
+                        </div>
+                    </div>
+
+                    <div class="preview-wrapper">
+                        <div class="sandbox-preview-box">
+                            <div id="preview-anim-box" class="anim-pulse" style="width: 100px; height: 100px; background: var(--accent-gradient); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+                                Animating
+                            </div>
+                        </div>
+
+                        <div class="code-box">
+                            <button class="copy-code-btn" id="copy-anim-code">Copy CSS</button>
+                            <pre><code id="code-anim-out">animation: pulseGlow 1.5s infinite alternate ease-in-out;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 3: UI Component Showcase Gallery -->
+        <section class="section" id="components">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">UI Component <span class="gradient-text">Showcase</span></h2>
+                    <p class="section-subtitle">Production-ready, highly styled modern UI elements powered by semantic HTML5 &amp; Vanilla CSS3.</p>
+                </div>
+
+                <div class="component-grid">
+
+                    <!-- 1. Neumorphic Glow Button -->
+                    <div class="component-card">
+                        <div class="component-header">
+                            <h3 class="component-title">Neumorphic Button</h3>
+                            <span class="component-tag">BUTTON</span>
+                        </div>
+                        <div class="component-preview">
+                            <button class="btn-neumorphic">Soft Neumorphic</button>
+                        </div>
+                        <div class="component-footer">
+                            <button class="btn-view-code" data-comp="neumorphic-btn">
+                                View Code &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 2. Cyberpunk Glow Button -->
+                    <div class="component-card">
+                        <div class="component-header">
+                            <h3 class="component-title">Cyberpunk Border Glow</h3>
+                            <span class="component-tag">BUTTON</span>
+                        </div>
+                        <div class="component-preview">
+                            <button class="btn-cyber-border">Cyberpunk</button>
+                        </div>
+                        <div class="component-footer">
+                            <button class="btn-view-code" data-comp="cyber-btn">
+                                View Code &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 3. Floating Label Input -->
+                    <div class="component-card">
+                        <div class="component-header">
+                            <h3 class="component-title">Floating Input Field</h3>
+                            <span class="component-tag">FORM</span>
+                        </div>
+                        <div class="component-preview">
+                            <div class="floating-group">
+                                <input type="text" id="sample-input" class="floating-input" placeholder=" ">
+                                <label for="sample-input" class="floating-label">Email Address</label>
+                            </div>
+                        </div>
+                        <div class="component-footer">
+                            <button class="btn-view-code" data-comp="floating-input">
+                                View Code &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 4. Custom Switch Toggle -->
+                    <div class="component-card">
+                        <div class="component-header">
+                            <h3 class="component-title">Animated Toggle Switch</h3>
+                            <span class="component-tag">FORM</span>
+                        </div>
+                        <div class="component-preview">
+                            <label class="switch-label">
+                                <input type="checkbox" class="switch-input" checked>
+                                <span class="switch-slider"></span>
+                                <span style="font-weight: 500; font-size: 0.9rem;">Notifications</span>
+                            </label>
+                        </div>
+                        <div class="component-footer">
+                            <button class="btn-view-code" data-comp="toggle-switch">
+                                View Code &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 5. Glowing Tooltip -->
+                    <div class="component-card">
+                        <div class="component-header">
+                            <h3 class="component-title">Animated Tooltip</h3>
+                            <span class="component-tag">TOOLTIP</span>
+                        </div>
+                        <div class="component-preview">
+                            <div class="tooltip-trigger">
+                                Hover Over Me
+                                <div class="tooltip-content">✨ Pure CSS Gradient Tooltip!</div>
+                            </div>
+                        </div>
+                        <div class="component-footer">
+                            <button class="btn-view-code" data-comp="tooltip">
+                                View Code &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 6. Gradient Badge & Chips -->
+                    <div class="component-card">
+                        <div class="component-header">
+                            <h3 class="component-title">Status Chips &amp; Badges</h3>
+                            <span class="component-tag">BADGE</span>
+                        </div>
+                        <div class="component-preview" style="gap: 8px; flex-wrap: wrap;">
+                            <span class="hero-badge" style="margin-bottom: 0;">Verified</span>
+                            <span class="live-badge">ONLINE</span>
+                        </div>
+                        <div class="component-footer">
+                            <button class="btn-view-code" data-comp="badges">
+                                View Code &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Showcase -->
+        <section class="section" id="features" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Built with <span class="gradient-text">Modern Standards</span></h2>
+                    <p class="section-subtitle">Every technique on StyleCraft leverages optimal browser standard CSS properties.</p>
+                </div>
+
+                <div class="component-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                    <div style="background: var(--bg-primary); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-glass);">
+                        <h3 style="margin-bottom: 0.75rem; color: var(--accent-primary);">⚡ CSS Custom Variables</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Instant theme switching (Dark, Light, Cyberpunk) using dynamic scoped CSS tokens without external UI libraries.</p>
+                    </div>
+
+                    <div style="background: var(--bg-primary); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-glass);">
+                        <h3 style="margin-bottom: 0.75rem; color: var(--accent-secondary);">💎 Backdrop Blur &amp; Glass</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">High-performance GPU glassmorphism with dynamic opacity, subtle border highlights, and ambient light drops.</p>
+                    </div>
+
+                    <div style="background: var(--bg-primary); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-glass);">
+                        <h3 style="margin-bottom: 0.75rem; color: var(--accent-tertiary);">📐 Flexbox &amp; Grid Layouts</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Fully responsive container structures designed with clean CSS Grid columns and flexible alignment rules.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Code View Modal -->
+    <div class="modal-overlay" id="code-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modal-title" style="font-size: 1.1rem;">Component Code</h3>
+                <button class="modal-close" id="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="code-box">
+                    <button class="copy-code-btn" id="modal-copy-btn">Copy HTML &amp; CSS</button>
+                    <pre><code id="modal-code-content">Loading code...</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Footer -->
+    <footer style="padding: 3rem 0; border-top: 1px solid var(--border-glass); text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+        <div class="container">
+            <p style="margin-bottom: 0.5rem;">Built with ❤️ using pure <strong>HTML5</strong> &amp; <strong>Vanilla CSS3</strong>.</p>
+            <p>&copy; 2026 StyleCraft Interactive Playground.</p>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+</html>
