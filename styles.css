@@ -98,6 +98,31 @@
     --shadow-glow: 0 0 35px rgba(255, 0, 127, 0.5), 0 0 15px rgba(0, 243, 255, 0.3);
 }
 
+/* Cyberpunk Mode 2 Theme Overrides */
+[data-theme="cyberpunk-2"] {
+    --bg-primary: #07070f;
+    --bg-secondary: #11142a;
+    --bg-tertiary: #1c1f3c;
+    --bg-card: rgba(19, 22, 50, 0.85);
+    --bg-glass: rgba(163, 54, 255, 0.08);
+    --border-glass: rgba(88, 255, 245, 0.25);
+    --border-hover: #57f7ff;
+    
+    --accent-primary: #7c1dff;
+    --accent-primary-hover: #5b11d1;
+    --accent-secondary: #06f2ff;
+    --accent-tertiary: #ff3dcc;
+    --accent-gradient: linear-gradient(135deg, #7c1dff 0%, #06f2ff 50%, #ff3dcc 100%);
+    --accent-gradient-2: linear-gradient(135deg, #06f2ff 0%, #7c1dff 100%);
+    
+    --text-main: #edf2ff;
+    --text-muted: #a3b1dc;
+    --text-dim: #7b83a0;
+    --text-accent: #87f0ff;
+    
+    --shadow-glow: 0 0 40px rgba(124, 29, 255, 0.25), 0 0 20px rgba(6, 242, 255, 0.2);
+}
+
 /* --- Base Resets & Global Styles --- */
 *, *::before, *::after {
     box-sizing: border-box;
